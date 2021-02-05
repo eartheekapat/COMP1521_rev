@@ -31,6 +31,20 @@ int main(int argc, char *argv[]) {
 char *sixteen_out(int16_t value) {
 
     // PUT YOUR CODE HERE
-
+    char *bit = malloc ((N_BITS+1) * sizeof(char));
+    assert(bit);
+    // check for 1 in each bit of value
+    // if 1 change the bit in bits to '1' instead of '0'
+    for (int i = 0; i < N_BITS; i++) {
+        int16_t bitmask = 1 << (N_BITS - i - 1);
+        if (value & bitmask) {
+            bit[i] = '1';
+        } else {
+            bit[i] = '0';
+        }
+    }
+    bit [N_BITS] = '\0';
+    
+    return bit;
 }
 
